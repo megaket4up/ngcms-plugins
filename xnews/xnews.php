@@ -29,9 +29,11 @@ function xNewsShowBlock($params) {
 
 	global $CurrentHandler, $twig, $config;
 	if (isset($params['id']) && $params['id']) {
+        $totalBlocksCount = pluginGetVariable('xnews', 'count');
+
 		// Scan blocks
 		$isFound = false;
-		for ($i = 1; $i < 50; $i++) {
+		for ($i = 1; $i <= $totalBlocksCount; $i++) {
 			if (pluginGetVariable('xnews', $i . '_name') == $params['id']) {
 				// BLOCK FOUND. MAKE PRESETS !!!
 				$isFound = true;

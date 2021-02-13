@@ -1,11 +1,15 @@
 <?php
 # protect against hack attempts
 if (!defined('NGCMS')) die ('HAL');
+
+// TOTAL BLOCK COUNT
+$totalBlocksCount = 50;
+
 # preload config file
 pluginsLoadConfig();
 LoadPluginLang('xnews', 'config', '', 'tn', ':');
 $count = intval(pluginGetVariable($plugin, 'count'));
-if ($count < 1 || $count > 50)
+if ($count < 1 || $count > $totalBlocksCount)
 	$count = 1;
 # fill configuration parameters
 $cfg = array();
